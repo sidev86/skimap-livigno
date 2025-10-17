@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Skimap Livigno</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://unpkg.com/@panzoom/panzoom/dist/panzoom.min.js"></script>
+    <script src="impianti.js"></script>
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="map-container">
+      <div id="map">
+        <img src="skimap_livigno.png" alt="Mappa delle piste" id="map-image" />
+      </div>
+    </div>
+
+    <div id="info-modal" class="modal hidden">
+      <div class="modal-content">
+        <h3 id="modal-title"></h3>
+        <p id="modal-info"></p>
+        <button id="close-modal">Chiudi</button>
+      </div>
+    </div>
+
+    <script src="skimap.js"></script>
+  </body>
+</html>
