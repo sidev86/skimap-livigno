@@ -6,6 +6,29 @@ body {
   touch-action: none;
 }
 
+#language-selector {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 20;
+}
+
+#language-selector button {
+  background: #222;
+  color: white;
+  border: none;
+  margin-left: 5px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+#language-selector button.active {
+  background: #e6db04ff;
+  color: black;
+}
+
 .map-container {
   position: relative;
   width: 100vw;
@@ -31,13 +54,14 @@ body {
 
 .hotspot {
   position: absolute;
-  width: 26px;
-  height: 26px;
+  width: 13px;
+  height: 13px;
   border-radius: 50%;
   border: 2px solid white;
   cursor: pointer;
   transform: translate(-50%, -50%);
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+  background: transparent;
 }
 
 .modal {
@@ -69,6 +93,15 @@ body {
 
 .modal-content h3 {
   margin-top: 0;
+}
+
+.modal-img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
 }
 
 button {

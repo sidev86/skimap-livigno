@@ -1,27 +1,31 @@
 window.IMPIANTI = [
   {
-    id: 1,
-    nome: "Seggiovia Monte Bianco",
-    descrizione: "Pista rossa, altitudine 2200m, lunghezza 1.2 km.",
-    top: "40%",
-    left: "55%",
-    colore: "red",
+    id: "1",
+    nome: {
+      it: "Seggiovia Teola Pianoni Bassi",
+      en: "Teola Pianoni Bassi Chairlift",
+    },
+    posti: 4,
+    lunghezza: 1176.68,
+    dislivello: 445.14,
+    quota: 2363.29,
+    immagine: "images/telecabina-mottolino.png",
+    top: "61.80%",
+    left: "40.70%",
   },
   {
-    id: 2,
-    nome: "Tappeto Scuola Sci",
-    descrizione: "Area principianti e bambini, con bar e ristoro.",
-    top: "65%",
-    left: "35%",
-    colore: "blue",
+    id: "2",
+    nome: {
+      it: "Seggiovia Mottolino",
+      en: "Mottolino Chairlift",
+    },
+    posti: 6,
+    lunghezza: 1530.42,
+    dislivello: 510.32,
+    quota: 2400.1,
+    immagine: "images/telecabina-mottolino.png",
+    top: "56.20%",
+    left: "28.00%",
   },
-  {
-    id: 3,
-    nome: "Funivia Valle",
-    descrizione: "Accesso principale, collegamento con parcheggio a valle.",
-    top: "82%",
-    left: "48%",
-    colore: "black",
-  },
-  // ... altri fino a 30
+  // altri impianti...
 ];

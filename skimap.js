@@ -1,3 +1,5 @@
+let currentLang = "it";
+
 // Attiva Panzoom
 const map = document.querySelector("#map");
 const panzoom = Panzoom(map, {
@@ -16,9 +18,8 @@ window.IMPIANTI.forEach((i) => {
   el.className = "hotspot";
   el.style.top = i.top;
   el.style.left = i.left;
-  el.style.background = i.colore || "red";
-  el.dataset.title = i.nome;
-  el.dataset.info = i.descrizione;
+  el.style.background = "transparent";
+  el.dataset.info = JSON.stringify(i); // Salva tutti i dati come stringa JSON
   map.appendChild(el);
 });
 
@@ -30,9 +31,43 @@ const closeModal = document.getElementById("close-modal");
 
 document.querySelectorAll(".hotspot").forEach((hs) => {
   hs.addEventListener("click", () => {
-    modalTitle.textContent = hs.dataset.title;
-    modalInfo.textContent = hs.dataset.info;
+    const data = JSON.parse(hs.dataset.info);
+
+    // Traduci nome in base alla lingua
+    modalTitle.textContent = data.nome[currentLang];
+
+    modalInfo.innerHTML = `
+      ${
+        data.immagine
+          ? `<img src="${data.immagine}" alt="${data.nome[currentLang]}" class="modal-img">`
+          : ""
+      }
+      <p><strong>${currentLang === "it" ? "Posti" : "Seats"}:</strong> ${
+      data.posti
+    }</p>
+      <p><strong>${
+        currentLang === "it" ? "Lunghezza" : "Length"
+      }:</strong> ${data.lunghezza.toFixed(2)} m</p>
+      <p><strong>${
+        currentLang === "it" ? "Dislivello" : "Vertical drop"
+      }:</strong> ${data.dislivello.toFixed(2)} m</p>
+      <p><strong>${
+        currentLang === "it" ? "Quota alla cima" : "Altitude at top"
+      }:</strong> ${data.quota.toFixed(2)} m</p>
+    `;
+
     modal.classList.remove("hidden");
+  });
+});
+
+document.querySelectorAll("#language-selector button").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    currentLang = btn.dataset.lang;
+
+    document
+      .querySelectorAll("#language-selector button")
+      .forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
   });
 });
 
